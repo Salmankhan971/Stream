@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlow - Free Streaming Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <style>
+        :root { --primary: #3b82f6; --dark: #1f2937; --light: #f3f4f6; }
+        body.dark { background-color: #111827; color: #f3f4f6; }
+        body.light { background-color: #f3f4f6; color: #1f2937; }
+        .card { transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        .video-js { width: 100%; height: 0; padding-top: 56.25%; }
+    </style>
+</head>
+<body class="light">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-blue-600 dark:text-blue-400">StreamFlow</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+                    </button>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">Admin Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <!-- Hero Section -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-700 dark:to-purple-800 rounded-2xl p-8 text-white">
+                <div class="max-w-3xl">
+                    <h1 class="text-4xl font-bold mb-4">Free Streaming Platform</h1>
+                    <p class="text-xl mb-6">Deployed completely free using GitHub and free hosting services</p>
+                    <button class="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100">Start Watching</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deployment Instructions -->
+        <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 dark:text-white">How to Deploy Your Streaming Site for Free</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
+                    <h3 class="font-semibold text-blue-700 dark:text-blue-300 mb-2"><i class="fas fa-database mr-2"></i>Step 1: Database Setup</h3>
+                    <ol class="list-decimal pl-5 text-sm space-y-2">
+                        <li>Go to <a href="https://www.mongodb.com/atlas" class="text-blue-600 dark:text-blue-400 underline" target="_blank">MongoDB Atlas</a></li>
+                        <li>Create a free account</li>
+                        <li>Create a new cluster</li>
+                        <li>Get your connection string</li>
+                    </ol>
+                </div>
+                
+                <div class="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg">
+                    <h3 class="font-semibold text-green-700 dark:text-green-300 mb-2"><i class="fas fa-server mr-2"></i>Step 2: Backend Setup</h3>
+                    <ol class="list-decimal pl-5 text-sm space-y-2">
+                        <li>Go to <a href="https://render.com" class="text-green-600 dark:text-green-400 underline" target="_blank">Render.com</a></li>
+                        <li>Connect your GitHub repository</li>
+                        <li>Deploy your Node.js backend</li>
+                        <li>Set environment variables</li>
+                    </ol>
+                </div>
+                
+                <div class="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-lg">
+                    <h3 class="font-semibold text-purple-700 dark:text-purple-300 mb-2"><i class="fas fa-desktop mr-2"></i>Step 3: Frontend Setup</h3>
+                    <ol class="list-decimal pl-5 text-sm space-y-2">
+                        <li>Go to <a href="https://vercel.com" class="text-purple-600 dark:text-purple-400 underline" target="_blank">Vercel.com</a></li>
+                        <li>Import your GitHub project</li>
+                        <li>Configure build settings</li>
+                        <li>Deploy with one click</li>
+                    </ol>
+                </div>
+                
+                <div class="bg-yellow-50 dark:bg-yellow-900/30 p-4 rounded-lg">
+                    <h3 class="font-semibold text-yellow-700 dark:text-yellow-300 mb-2"><i class="fas fa-globe mr-2"></i>Step 4: Domain Setup</h3>
+                    <ol class="list-decimal pl-5 text-sm space-y-2">
+                        <li>Get a free domain from <a href="https://freenom.com" class="text-yellow-600 dark:text-yellow-400 underline" target="_blank">Freenom</a></li>
+                        <li>Or use the provided subdomain</li>
+                        <li>Configure DNS settings</li>
+                        <li>Test your live website</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sample Content -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6 dark:text-white">Sample Streams</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x225/3b82f6/ffffff?text=Sample+Stream" alt="Stream thumbnail" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1 dark:text-white">Demo Stream 1</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">This is a sample stream for demonstration</p>
+                    </div>
+                </div>
+                
+                <div class="card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x225/ef4444/ffffff?text=Live+Demo" alt="Stream thumbnail" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1 dark:text-white">Demo Stream 2</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">This is a sample stream for demonstration</p>
+                    </div>
+                </div>
+                
+                <div class="card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x225/10b981/ffffff?text=Tutorial" alt="Stream thumbnail" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1 dark:text-white">Demo Stream 3</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">This is a sample stream for demonstration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>This streaming platform can be deployed for free using GitHub and free hosting services</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fas fa-server"></i> Vercel</a>
+                <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fas fa-database"></i> MongoDB Atlas</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('light')) {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon text-gray-700"></i>';
+            }
+        });
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            html.classList.remove('light');
+            html.classList.add('dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+        }
+    </script>
+</body>
+</html>
